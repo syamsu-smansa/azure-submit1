@@ -163,15 +163,15 @@ try {
 	
 		$result = $blobClient->listBlobs($containerName, $listBlobsOptions);
 		foreach ($result->getBlobs() as $blob) 	{
-			echo $blob->getName()
 ?>
-		<img src="<?php echo $blob->getUrl() ?>"/><br />	
+		<img width="150" src="<?php echo $blob->getUrl() ?>"/><br />	
 <?php	
+			echo $blob->getName()
 					//echo $blob->getName().": ".$blob->getUrl()."<br />";
 		}
 			
 		$listBlobsOptions->setContinuationToken($result->getContinuationToken());
-?>
+?>	
 </td>
 <?php	
 	} while($result->getContinuationToken());
