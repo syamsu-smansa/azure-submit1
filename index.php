@@ -24,10 +24,10 @@
        <td align='right'>Nama</td><td>:</td><td><input type="text" name="name" id="name"/></td>
    </tr>
    <tr>
-       <td align='right'>Email/td><td>:</td><td><input type="text" name="email" id="email"/></td>
+       <td align='right'>Email</td><td>:</td><td><input type="text" name="email" id="email"/></td>
    </tr>
    <tr>
-       <td align='right'>Pekerjaan/td><td>:</td><td><input type="text" name="job" id="job"/></td>
+       <td align='right'>Pekerjaan</td><td>:</td><td><input type="text" name="job" id="job"/></td>
    </tr>
    <tr>
       <td>
