@@ -54,7 +54,7 @@
  
         .done(function(data) {
             // Show formatted JSON on webpage.
-            $("#info").val(JSON.stringify(data, null, 2));
+            $("#info").html(JSON.stringify(data, null, 2));
         })
  
         .fail(function(jqXHR, textStatus, errorThrown) {
