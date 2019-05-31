@@ -168,7 +168,7 @@ try {
 		foreach ($result->getBlobs() as $blob) 	{
 ?>
 		<b><a href="analisa.php?url=<?php echo $blob->getUrl() ?>"><?php echo $blob->getName(); ?></a></b><br />
-		<img width="150" src="<?php echo $blob->getUrl() ?>"/>	
+		<img width="120" src="<?php echo $blob->getUrl() ?>"/>	
 <?php	
 			
 					//echo $blob->getName().": ".$blob->getUrl()."<br />";
