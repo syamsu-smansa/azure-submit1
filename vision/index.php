@@ -92,15 +92,15 @@ if(isset($_FILES['image'])){
 			
 			$fileName = $_FILES['image']['name'];
 			
-			$myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
-			fclose($myfile);
+			//$myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
+			//fclose($myfile);
 			
 			# Upload file as a block blob
 			echo "Uploading BlockBlob: ".PHP_EOL;
 			echo $fileName;
 			echo "<br />";
 			
-			$content = fopen($fileToUpload, "r");
+			$content = file_get_contents($fileToUpload);
 
 			//Upload blob
 			$blobClient->createBlockBlob($containerName, $fileName, $content);
