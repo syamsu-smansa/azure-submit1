@@ -212,7 +212,7 @@ try {
 	}
 ?>
 </tr>
-<tr><td><a href="index.php?Cleanup&containerName=<?php echo $containerName; ?>">Hapus storage</a></td></tr>
+<tr><td><a href="index.php?Cleanup&containerName">Hapus storage</a></td></tr>
 <tr><td><form method="post">Isi text dari gambar yg sudah di upload di atas: <input type="text" /><button type="submit"></form>
 <tr><td><h3>Hasil Analisa</h3></td></tr>
 <tr><td><img src="" id="hasil" /></td></td>
