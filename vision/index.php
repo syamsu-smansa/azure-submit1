@@ -46,46 +46,46 @@ $connectionString = "DefaultEndpointsProtocol=https;AccountName=dicodingstorage1
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
 
+// Create container options object.
+$createContainerOptions = new CreateContainerOptions();
+
+// Set public access policy. Possible values are
+// PublicAccessType::CONTAINER_AND_BLOBS and PublicAccessType::BLOBS_ONLY.
+// CONTAINER_AND_BLOBS:
+// Specifies full public read access for container and blob data.
+// proxys can enumerate blobs within the container via anonymous
+// request, but cannot enumerate containers within the storage account.
+//
+// BLOBS_ONLY:
+// Specifies public read access for blobs. Blob data within this
+// container can be read via anonymous request, but container data is not
+// available. proxys cannot enumerate blobs within the container via
+// anonymous request.
+// If this value is not specified in the request, container data is
+// private to the account owner.
+$createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+
+// Set container metadata.
+$createContainerOptions->addMetaData("key1", "gambar");
+$createContainerOptions->addMetaData("key2", "analisa");
+
+$containerName = "blockblobs".generateRandomString();
+
+try {
+	// Create container.
+	$blobClient->createContainer($containerName, $createContainerOptions);
+
+}
+catch(ServiceException $e){
+
+	$code = $e->getCode();
+	$error_message = $e->getMessage();
+	echo $code.": ".$error_message."<br />";
+}
+
 if(isset($_FILES['image'])){
 
 		$fileToUpload = $_FILES['image']['tmp_name'];
-		
-		// Create container options object.
-		$createContainerOptions = new CreateContainerOptions();
-
-		// Set public access policy. Possible values are
-		// PublicAccessType::CONTAINER_AND_BLOBS and PublicAccessType::BLOBS_ONLY.
-		// CONTAINER_AND_BLOBS:
-		// Specifies full public read access for container and blob data.
-		// proxys can enumerate blobs within the container via anonymous
-		// request, but cannot enumerate containers within the storage account.
-		//
-		// BLOBS_ONLY:
-		// Specifies public read access for blobs. Blob data within this
-		// container can be read via anonymous request, but container data is not
-		// available. proxys cannot enumerate blobs within the container via
-		// anonymous request.
-		// If this value is not specified in the request, container data is
-		// private to the account owner.
-		$createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
-
-		// Set container metadata.
-		$createContainerOptions->addMetaData("key1", "gambar");
-		$createContainerOptions->addMetaData("key2", "analisa");
-
-		$containerName = "blockblobs".generateRandomString();
-
-		try {
-			// Create container.
-			$blobClient->createContainer($containerName, $createContainerOptions);
-			
-		}
-		catch(ServiceException $e){
-			
-			$code = $e->getCode();
-			$error_message = $e->getMessage();
-			echo $code.": ".$error_message."<br />";
-		}
 
 		try{	
 
