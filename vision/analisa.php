@@ -32,7 +32,7 @@
         };
  
         // Display the image.
-        var sourceImageUrl = $("#inputImage").src;
+        var sourceImageUrl = $("#inputImage").attr("src");
 //        document.querySelector("#sourceImage").src = sourceImageUrl;
  
         // Make the REST API call.
