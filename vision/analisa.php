@@ -2,11 +2,10 @@
 
 <head>
   <title>Analisa Gambar</title>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head> 
 <body>
 <script type="text/javascript">  
-  <script type="text/javascript">
     function processImage() {
         // **********************************************
         // *** Update or verify the following values. ***
@@ -67,7 +66,6 @@
             alert(errorString);
         });
     };
-</script>
 </script>  
 <table>
  <tr><td>
