@@ -54,6 +54,7 @@
  
         .done(function(data) {
             // Show formatted JSON on webpage.
+            $("#captions").html(data.captions[0].text);
             $("#info").html(JSON.stringify(data, null, 2));
         })
  
