@@ -26,7 +26,7 @@
        <input type="submit" name="load_data" value="Tampilkan data" />
  </form>
  <?php
-    $host = "dicodingdb1.database.windows.net";
+    $host = "tcp:dicodingdb1.database.windows.net,1433";
     $user = "syamsu";
     $pass = "H234k123m";
     $db = "DicodingDB";
