@@ -71,8 +71,9 @@
 </script>  
 <table>
  <tr><td>
-   <img src="<?php echo $_GET['url'] ?>" id="inputImage" /><br/>
-   <button onclick="processImage()">Analisa</button>
+   <img src="<?php echo $_GET['url'] ?>" id="inputImage" /><br/><br/>
+   <button onclick="processImage()">Analisa</button><br/><br/>
+   <hr/>
  </td></tr>  
 <tr><td><h3>Hasil Analisa</h3></td></tr>
 <tr><td>Captions</td><tr>
