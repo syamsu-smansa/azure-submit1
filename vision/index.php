@@ -41,7 +41,7 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-$connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('ACCOUNT_NAME').";AccountKey=".getenv('ACCOUNT_KEY');
+$connectionString = "DefaultEndpointsProtocol=https;AccountName=dicodingstorage1;AccountKey=McnzC6LJdokER0prQK/Ws/NVcqgYBtzT0Hx3mLHm4lz1GlFnrECQDFDAofMz+Y9lvqszwZzbtPmGWvoIr7h6QQ==";
 
 // Create blob client.
 $blobClient = BlobRestProxy::createBlobService($connectionString);
@@ -152,8 +152,24 @@ else
     }
 }
 ?>
-
-
-<form method="post" action="phpQS.php?Cleanup&containerName=<?php echo $containerName; ?>">
+<html>
+<body>
+<table>
+<tr>
+<td>
+<form method="post" action="index.php?Cleanup&containerName=<?php echo $containerName; ?>"  enctype="multipart/form-data">
+    <input type="file" name="image" />
     <button type="submit">Press to clean up all resources created by this sample</button>
 </form>
+</td>
+</tr>
+<tr><td><a href="index.php?Cleanup&containerName=<?php echo $containerName; ?>">Hapus storage</a></td></tr>
+<tr><td><h3>Hasil Analisa</h3></td></tr>
+<tr><td><img src="" id="hasil" /></td></td>
+<tr><td>Captions</td><tr>
+<tr><td><span id="captions">&nbsp;</span></td></tr>
+<tr><td>Info Lengkap</td><tr>
+<tr><td><span id="info">&nbsp;</span></td></tr>
+</table>
+</body>
+</html>
