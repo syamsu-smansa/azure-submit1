@@ -175,21 +175,29 @@ if(isset($_FILES['image'])){
     <button type="submit">Kirim</button>
 </form>
 </td>
+</tr>
+<tr>	
 <?php
 
 			$listBlobsOptions = new ListBlobsOptions();
 			$listBlobsOptions->setPrefix("Upload");
 
 			do{
-				$result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+?>
+<td>
+<?php	
+	
+	$result = $blobClient->listBlobs($containerName, $listBlobsOptions);
 				foreach ($result->getBlobs() as $blob)
 				{
 					echo $blob->getName().": ".$blob->getUrl()."<br />";
 				}
 			
 				$listBlobsOptions->setContinuationToken($result->getContinuationToken());
+?>
+</td>
+<?php	
 			} while($result->getContinuationToken());
-			echo "<br />";
 
 ?>
 </tr>
