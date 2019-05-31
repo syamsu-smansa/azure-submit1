@@ -178,7 +178,7 @@ if(isset($_FILES['image'])){
 </tr>
 <tr>	
 <?php
-
+try {
 			$listBlobsOptions = new ListBlobsOptions();
 			$listBlobsOptions->setPrefix("Upload");
 
@@ -199,6 +199,17 @@ if(isset($_FILES['image'])){
 <?php	
 			} while($result->getContinuationToken());
 
+	} catch(ServiceException $e){
+?>
+<td>
+<?php 	
+		$code = $e->getCode();
+			$error_message = $e->getMessage();
+			echo $code.": ".$error_message."<br />";
+?>
+</td>	
+<?php	
+	}
 ?>
 </tr>
 <tr><td><a href="index.php?Cleanup&containerName=<?php echo $containerName; ?>">Hapus storage</a></td></tr>
