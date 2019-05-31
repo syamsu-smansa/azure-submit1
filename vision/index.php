@@ -166,7 +166,7 @@ try {
 ?>
 		<img width="150" src="<?php echo $blob->getUrl() ?>"/><br />	
 <?php	
-			echo $blob->getName()
+			echo $blob->getName();
 					//echo $blob->getName().": ".$blob->getUrl()."<br />";
 		}
 			
