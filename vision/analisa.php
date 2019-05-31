@@ -75,9 +75,9 @@
    <hr/>
  </td></tr>  
 <tr><td><h3>Hasil Analisa</h3></td></tr>
-<tr><td>Captions</td><tr>
+<tr><td><h3>Captions</h3></td><tr>
 <tr><td><span id="captions">&nbsp;</span></td></tr>
-<tr><td>Info Lengkap</td><tr>
+<tr><td><h3>Info Lengkap</h3></td><tr>
 <tr><td><span id="info">&nbsp;</span></td></tr>
 </table>
 </body>
