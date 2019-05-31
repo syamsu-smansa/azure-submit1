@@ -92,7 +92,6 @@ if(isset($_FILES['image'])){
 			
 			$fileName = $_FILES['image']['name'];
 			
-			// Getting local file so that we can upload it to Azure
 			$myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
 			fclose($myfile);
 			
@@ -105,29 +104,6 @@ if(isset($_FILES['image'])){
 
 			//Upload blob
 			$blobClient->createBlockBlob($containerName, $fileName, $content);
-
-			// List blobs.
-//			$listBlobsOptions = new ListBlobsOptions();
-//			$listBlobsOptions->setPrefix("HelloWorld");
-
-			//echo "These are the blobs present in the container: ";
-
-//			do{
-//				$result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-//				foreach ($result->getBlobs() as $blob)
-//				{
-//					echo $blob->getName().": ".$blob->getUrl()."<br />";
-//				}
-//			
-//				$listBlobsOptions->setContinuationToken($result->getContinuationToken());
-//			} while($result->getContinuationToken());
-//			echo "<br />";
-
-			// Get blob.
-//			echo "This is the content of the blob uploaded: ";
-//			$blob = $blobClient->getBlob($containerName, $fileToUpload);
-//			fpassthru($blob->getContentStream());
-//			echo "<br />";
 		}
 		catch(ServiceException $e){
 			// Handle exception based on error codes and messages.
@@ -138,9 +114,6 @@ if(isset($_FILES['image'])){
 			echo $code.": ".$error_message."<br />";
 		}
 		catch(InvalidArgumentTypeException $e){
-			// Handle exception based on error codes and messages.
-			// Error codes and messages are here:
-			// http://msdn.microsoft.com/library/azure/dd179439.aspx
 			$code = $e->getCode();
 			$error_message = $e->getMessage();
 			echo $code.": ".$error_message."<br />";
@@ -180,41 +153,40 @@ if(isset($_FILES['image'])){
 <tr>	
 <?php
 try {
-			$listBlobsOptions = new ListBlobsOptions();
-			$listBlobsOptions->setPrefix("Upload");
+	$listBlobsOptions = new ListBlobsOptions();
+	$listBlobsOptions->setPrefix("Upload");
 
-			do{
+	do {
 ?>
 <td>
 <?php	
 	
-	$result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-				foreach ($result->getBlobs() as $blob)
-				{
-					echo $blob->getName()
+		$result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+		foreach ($result->getBlobs() as $blob) 	{
+			echo $blob->getName()
 ?>
 		<img src="<?php echo $blob->getUrl() ?>"/><br />	
 <?php	
 					//echo $blob->getName().": ".$blob->getUrl()."<br />";
-				}
+		}
 			
-				$listBlobsOptions->setContinuationToken($result->getContinuationToken());
+		$listBlobsOptions->setContinuationToken($result->getContinuationToken());
 ?>
 </td>
 <?php	
-			} while($result->getContinuationToken());
+	} while($result->getContinuationToken());
 
-	} catch(ServiceException $e){
+} catch(ServiceException $e){
 ?>
 <td>
 <?php 	
-		$code = $e->getCode();
-			$error_message = $e->getMessage();
-			echo $code.": ".$error_message."<br />";
+	$code = $e->getCode();
+	$error_message = $e->getMessage();
+	echo $code.": ".$error_message."<br />";
 ?>
 </td>	
 <?php	
-	}
+}
 ?>
 </tr>
 <tr><td><form>Isi text dari gambar yg sudah di upload di atas: <input type="text" /><button type="button">Analisa</button></form>
