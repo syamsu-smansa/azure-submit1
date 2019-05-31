@@ -190,7 +190,11 @@ try {
 	$result = $blobClient->listBlobs($containerName, $listBlobsOptions);
 				foreach ($result->getBlobs() as $blob)
 				{
-					echo $blob->getName().": ".$blob->getUrl()."<br />";
+					echo $blob->getName()
+?>
+		<img src="<?php echo $blob->getUrl() ?>"/><br />	
+<?php	
+					//echo $blob->getName().": ".$blob->getUrl()."<br />";
 				}
 			
 				$listBlobsOptions->setContinuationToken($result->getContinuationToken());
@@ -213,7 +217,7 @@ try {
 ?>
 </tr>
 <tr><td><a href="index.php?Cleanup&containerName">Hapus storage</a></td></tr>
-<tr><td><form method="post">Isi text dari gambar yg sudah di upload di atas: <input type="text" /><button type="submit"></form>
+<tr><td><form>Isi text dari gambar yg sudah di upload di atas: <input type="text" /><button type="button">Analisa</button></form>
 <tr><td><h3>Hasil Analisa</h3></td></tr>
 <tr><td><img src="" id="hasil" /></td></td>
 <tr><td>Captions</td><tr>
