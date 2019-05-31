@@ -172,7 +172,7 @@ if(isset($_FILES['image'])){
 <td>
 <form method="post" action="index.php?Cleanup&containerName=<?php echo $containerName; ?>"  enctype="multipart/form-data">
     <input type="file" name="image" />
-    <button type="submit">Bersihkan storage azure</button>
+    <button type="submit">Kirim</button>
 </form>
 </td>
 <?php
