@@ -19,9 +19,9 @@
  <h1>Daftar di sini!</h1>
  <p>Masukkan nama dan email di sini, lalu tekan <strong>Daftar</strong> untuk mendaftar.</p>
  <form method="post" action="index.php" enctype="multipart/form-data" >
-       Name  <input type="text" name="name" id="name"/></br></br>
+       Nama  <input type="text" name="name" id="name"/></br></br>
        Email <input type="text" name="email" id="email"/></br></br>
-       Job <input type="text" name="job" id="job"/></br></br>
+       Pekerjaan <input type="text" name="job" id="job"/></br></br>
        <input type="submit" name="submit" value="Daftar" />
        <input type="submit" name="load_data" value="Tampilkan data" />
  </form>
@@ -54,22 +54,22 @@
             $stmt->bindValue(4, $date);
             $stmt->execute();
         } catch(Exception $e) {
-            echo "Failed: " . $e;
+            echo "Gagal: " . $e;
         }
 
-        echo "<h3>Your're registered!</h3>";
+        echo "<h3>Selamat, kamu terdaftar!</h3>";
     } else if (isset($_POST['load_data'])) {
         try {
             $sql_select = "SELECT * FROM Registration";
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
-                echo "<h2>People who are registered:</h2>";
+                echo "<h2>Data yang sudah terdaftar:</h2>";
                 echo "<table>";
-                echo "<tr><th>Name</th>";
+                echo "<tr><th>Nama</th>";
                 echo "<th>Email</th>";
-                echo "<th>Job</th>";
-                echo "<th>Date</th></tr>";
+                echo "<th>Perkerjaan</th>";
+                echo "<th>Tanggal</th></tr>";
                 foreach($registrants as $registrant) {
                     echo "<tr><td>".$registrant['name']."</td>";
                     echo "<td>".$registrant['email']."</td>";
@@ -78,10 +78,10 @@
                 }
                 echo "</table>";
             } else {
-                echo "<h3>No one is currently registered.</h3>";
+                echo "<h3>Belum ada yang mendaftar.</h3>";
             }
         } catch(Exception $e) {
-            echo "Failed: " . $e;
+            echo "Gagal: " . $e;
         }
     }
  ?>
