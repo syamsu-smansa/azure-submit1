@@ -26,10 +26,10 @@
        <input type="submit" name="load_data" value="Tampilkan data" />
  </form>
  <?php
-    $host = "<Nama server database Anda>";
-    $user = "<Nama admin database Anda>";
-    $pass = "<Password admin database Anda>";
-    $db = "<Nama database Anda>";
+    $host = "dicodingdb1.database.windows.net";
+    $user = "syamsu";
+    $pass = "H234k123m";
+    $db = "DicodingDB";
 
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
