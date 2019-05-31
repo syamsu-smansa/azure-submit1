@@ -154,7 +154,7 @@ if(isset($_FILES['image'])){
 <?php
 try {
 	$listBlobsOptions = new ListBlobsOptions();
-	$listBlobsOptions->setPrefix("Upload");
+	//$listBlobsOptions->setPrefix("Upload");
 
 	do {
 ?>
