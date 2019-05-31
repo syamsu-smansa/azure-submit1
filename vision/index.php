@@ -139,6 +139,9 @@ if(isset($_FILES['image'])){
 }	
 ?>
 <html>
+<head>
+  <title>Upload Gambar</title>
+</head> 
 <body>
 <table>
 <tr><td>Upload Gambar</td></tr>	
@@ -160,13 +163,14 @@ try {
 ?>
 <td>
 <?php	
-	
+		$i = 1;
 		$result = $blobClient->listBlobs($containerName, $listBlobsOptions);
 		foreach ($result->getBlobs() as $blob) 	{
 ?>
-		<img width="150" src="<?php echo $blob->getUrl() ?>"/><br />	
+		<b><a href="analisa.php?url=<?php echo $blob->getUrl() ?>"><?php echo $blob->getName(); ?></a></b><br />
+		<img width="150" src="<?php echo $blob->getUrl() ?>"/>	
 <?php	
-			echo $blob->getName();
+			
 					//echo $blob->getName().": ".$blob->getUrl()."<br />";
 		}
 			
@@ -188,14 +192,14 @@ try {
 <?php	
 }
 ?>
-</tr>
+<!-- </tr>
 <tr><td><form>Isi nama file dari daftar gambar yg sudah di upload di atas untuk dianalisa:<br/> <input type="text" /><button type="button">Analisa</button></form>
 <tr><td><h3>Hasil Analisa</h3></td></tr>
 <tr><td><img src="" id="hasil" /></td></td>
 <tr><td>Captions</td><tr>
 <tr><td><span id="captions">&nbsp;</span></td></tr>
 <tr><td>Info Lengkap</td><tr>
-<tr><td><span id="info">&nbsp;</span></td></tr>
+<tr><td><span id="info">&nbsp;</span></td></tr> -->
 <tr><td><a href="index.php?Cleanup=1&containerName=<?php echo $containerName; ?>">Hapus storage</a></td></tr>
 </table>
 </body>
