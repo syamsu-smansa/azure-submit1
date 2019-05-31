@@ -189,7 +189,7 @@ try {
 }
 ?>
 </tr>
-<tr><td><form>Isi text dari gambar yg sudah di upload di atas: <input type="text" /><button type="button">Analisa</button></form>
+<tr><td><form>Isi nama file dari daftar gambar yg sudah di upload di atas untuk dianalisa:<br/> <input type="text" /><button type="button">Analisa</button></form>
 <tr><td><h3>Hasil Analisa</h3></td></tr>
 <tr><td><img src="" id="hasil" /></td></td>
 <tr><td>Captions</td><tr>
