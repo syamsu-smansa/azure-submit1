@@ -19,11 +19,23 @@
  <h1>Daftar di sini!</h1>
  <p>Masukkan nama dan email di sini, lalu tekan <strong>Daftar</strong> untuk mendaftar.</p>
  <form method="post" action="index.php" enctype="multipart/form-data" >
-       Nama  <input type="text" name="name" id="name"/></br></br>
-       Email <input type="text" name="email" id="email"/></br></br>
-       Pekerjaan <input type="text" name="job" id="job"/></br></br>
-       <input type="submit" name="submit" value="Daftar" />
-       <input type="submit" name="load_data" value="Tampilkan data" />
+  <table>
+   <tr>
+       <td align='right'>Nama</td><td>:</td><td><input type="text" name="name" id="name"/></td>
+   </tr>
+   <tr>
+       <td align='right'>Email/td><td>:</td><td><input type="text" name="email" id="email"/></td>
+   </tr>
+   <tr>
+       <td align='right'>Pekerjaan/td><td>:</td><td><input type="text" name="job" id="job"/></td>
+   </tr>
+   <tr>
+      <td>
+        <input type="submit" name="submit" value="Daftar" />
+        <input type="submit" name="load_data" value="Tampilkan data" />
+      </td>
+   </tr>
+   </table>
  </form>
  <?php
     $host = "dicodinghostwin.database.windows.net";
