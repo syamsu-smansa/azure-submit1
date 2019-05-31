@@ -224,7 +224,7 @@ try {
 <tr><td><span id="captions">&nbsp;</span></td></tr>
 <tr><td>Info Lengkap</td><tr>
 <tr><td><span id="info">&nbsp;</span></td></tr>
-<tr><td><a href="index.php?Cleanup=1&containerName=<?php echo $containerName; ?>>">Hapus storage</a></td></tr>
+<tr><td><a href="index.php?Cleanup=1&containerName=<?php echo $containerName; ?>">Hapus storage</a></td></tr>
 </table>
 </body>
 </html>
