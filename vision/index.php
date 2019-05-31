@@ -144,7 +144,7 @@ if(isset($_FILES['image'])){
 <tr><td>Upload Gambar</td></tr>	
 <tr>
 <td>
-<form method="post" action="index.php?Cleanup&containerName=<?php echo $containerName; ?>"  enctype="multipart/form-data">
+<form method="post" action="index.php"  enctype="multipart/form-data">
     <input type="file" name="image" />
     <button type="submit">Kirim</button>
 </form>
