@@ -69,7 +69,7 @@ $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 $createContainerOptions->addMetaData("key1", "gambar");
 $createContainerOptions->addMetaData("key2", "analisa");
 
-$containerName = "blockblobs112232";
+$containerName = "blockblobs1321";
 
 try {
 	// Create container.
