@@ -33,7 +33,6 @@
  
         // Display the image.
         var sourceImageUrl = $("#inputImage").attr("src");
-//        document.querySelector("#sourceImage").src = sourceImageUrl;
  
         // Make the REST API call.
         $.ajax({
@@ -54,7 +53,8 @@
  
         .done(function(data) {
             // Show formatted JSON on webpage.
-            $("#captions").html(data.captions[0].text);
+            $("#captions").html(data.description.captions[0].text);
+            $("#tags").html(data.description.tags.join.(","));
             $("#info").html(JSON.stringify(data, null, 2));
         })
  
@@ -77,6 +77,8 @@
 <tr><td><h3>Hasil Analisa</h3></td></tr>
 <tr><td><h3>Captions</h3></td><tr>
 <tr><td><span id="captions">&nbsp;</span></td></tr>
+<tr><td><h3>Tags</h3></td><tr>
+<tr><td><span id="tags">&nbsp;</span></td></tr>
 <tr><td><h3>Info Lengkap</h3></td><tr>
 <tr><td><span id="info">&nbsp;</span></td></tr>
 </table>
